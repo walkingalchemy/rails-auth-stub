@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authorized, only: [:new, :create, ]
-  before_action set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -21,6 +21,7 @@ class UsersController < ApplicationController
     else
       flash[:error] = @user.errors.full_messages
       redirect_to new_user_path
+    end
   end
 
   def edit

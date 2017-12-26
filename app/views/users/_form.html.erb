@@ -1,0 +1,15 @@
+<%= form_for @user do |f| %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name, placeholder: "First Name" %>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name, placeholder: "Last Name" %>
+  <%= f.label :email %>
+  <%= f.text_field :email, placeholder: "email@address.com" %>
+  <%= f.label :username %>
+  <%= f.text_field :username, placeholder: "Username" %>
+  <%= f.label "Password" %>
+  <%= f.password_field :password, placeholder: "Password" %>
+  <%= f.label "Password Confirmation" %>
+  <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+  <%= f.submit %>
+<% end %>
