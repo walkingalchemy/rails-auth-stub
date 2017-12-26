@@ -26,9 +26,19 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user.assign_attributes(user_params)
+    if @user.valid?
+      @user.save
+      redirect_to user_path(@user)
+    else
+      flash[:error] = @user.errors.full_messages
+      redirect_to edit_user_path
+    end
   end
 
   def destroy
+    @user.destroy
+    redirect_to users_path
   end
 
   private
